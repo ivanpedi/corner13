@@ -1,0 +1,250 @@
+/* ESTILOS GENERALES DE LA PAGINA */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+    width: 100%;
+    padding: 0 15px;
+}
+/* ESTILOS PARA LA BARRA DE NAVEGACION DESPLEGABLE  */
+
+#menu_desplegable {
+    position: relative;
+    text-align: center;
+    margin-top: 20px;
+}
+/* Encabezado del menú */
+.menu-header {
+    font-size: 25px;
+    font-weight: bold;
+    color: orange;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+/* TEXTO INDICA DESPLEGAR MENU */
+
+#desplegar_menu {
+    font-size: 25px;
+    font-weight: bold;
+    color: orange; 
+    border-color: 2px solid black;
+    text-shadow: 
+        1px 1px 0 #000,  /* Trazo negro */
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000;
+}
+
+/* Flecha hacia abajo */
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid orange;
+    margin-top: 5px;
+    cursor: default;
+    
+      
+}
+/* MENU DE BOTONES Y MOVIMIENTOS EN LA BARRA DE NAVEGACION DESPLEGABLE */
+.menu_orange {
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.menu_orange:checked+label {
+    background: transparent;
+}
+
+.menu_orange:checked+label:before {
+    transform: rotate(45deg) translateY(-15px) translateX(-15px);
+}
+
+.menu_orange:checked+label:after {
+    transform: rotate(-45deg);
+}
+
+.menu_orange:checked~ul .menu-item {
+    opacity: 1;
+}
+
+.menu_orange:checked~ul .menu-item:nth-child(1) {
+    transform: rotate(360deg) translate(-150px);
+}
+
+.menu_orange:checked~ul .menu-item:nth-child(2) {
+    display: none;
+}
+
+.menu_orange:checked~ul .menu-item:nth-child(3) {
+    display: none;
+}
+
+.menu_orange:checked~ul .menu-item:nth-child(4) {
+    transform: rotate(180deg) translateX(-150px) translateY(20px);
+}
+
+.menu_orange:checked~ul .menu-item:nth-child(5) {
+    transform: rotate(240deg) translateX(-160px)translateY(20px);
+}
+
+.menu_orange:checked~ul .menu-item:nth-child(6) {
+    transform: rotate(300deg) translateX(-150px) translateY(20px);
+}
+
+.menu_orange:checked~ul .menu-item a {
+    pointer-events: auto;
+}
+
+/* MEDIA QUIERIES PARA MOVILES */
+
+@media(max-width:500px){
+    .menu_orange:checked~ul .menu-item:nth-child(4) {
+        transform: rotate(180deg) translateX(-120px) translateY(20px);
+    }
+    .menu_orange:checked~ul .menu-item:nth-child(1) {
+        transform: rotate(360deg) translate(-120px);
+    }
+}
+
+/* ROTACION DE LOS BOTONES */
+
+.menu_orange+label:after {
+    top: -10px;
+}
+
+.menu-item:nth-child(1) a {
+    transform: rotate(0deg);
+}
+
+.menu-item:nth-child(4) a {
+    transform: rotate(-180deg);
+}
+
+.menu-item:nth-child(5) a {
+    transform: rotate(-240deg);
+}
+
+.menu-item:nth-child(6) a {
+    transform: rotate(-300deg);
+}
+
+/* POSICIONAMIENTO DE LOS BOTONES */
+.menu-item {
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.menu-item a {
+    display: block;
+    width: 120px;
+    height: 60px;
+    line-height: 60px;
+    color: black;
+    background: orange;
+    text-align: center;
+    text-decoration: none;
+    font-size: 24px;
+    border-radius: 10px;
+    border:5px solid transparent;
+    transition: all 0.3s ease;
+    line-height: 50px;
+    box-sizing: border-box; 
+}
+/* Estilo para el hover de los botones */
+.menu-item a:hover {
+    color: white;
+    background: black;
+}
+
+  /* Estilo para el botón activo */
+  #menu_desplegable .menu-item a.active {
+    border:5px solid #000; 
+    text-align: center;
+  }
+  
+/* ESTILOS PARA LA GALERIA DINAMICA DE SWIPER */
+
+.swiper {
+    width: 650px;
+    height: 400px;
+    margin-bottom: 250px;
+    margin-top: 50px;
+}
+
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.swiper-slide img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.swiper-slide p {
+    margin-top: 10px;
+    font-size: 30px;
+    color: #333;
+    font-weight: bold;
+}
+/* MEDIA QUIERIES PARA EL SWIPER EN TAMAÑO PARA TELEFONOS MOVILES */
+
+@media (max-width:670px){
+    .swiper {
+        width: 350px;
+        height: 400px;
+        margin-bottom: 250px;
+        margin-top: 180px;
+    }
+    .swiper-slide p {
+        margin-bottom: 20px;
+        margin-left: 40px;
+        font-size: 30px;
+        color: #333;
+        font-weight: bold;
+    }  
+}
